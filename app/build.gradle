@@ -30,6 +30,11 @@ android {
         }
     }
 
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
     signingConfigs {
         appCenter {
             storeFile file("./test.keystore")
@@ -104,7 +109,11 @@ android {
         pickFirst("META-INF/atomicfu.kotlin_module")
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.0.0'
     }
 }
 
@@ -216,6 +225,23 @@ dependencies {
     implementation project(':components:keystore')
     implementation project(':components:pin')
     implementation project(':components:seekbar')
+
+    // Integration with activities
+    implementation 'androidx.activity:activity-compose:1.3.0'
+    // Compose Material Design
+    implementation 'androidx.compose.material:material:1.0.0'
+    // Animations
+    implementation 'androidx.compose.animation:animation:1.0.0'
+    // Tooling support (Previews, etc.)
+    implementation 'androidx.compose.ui:ui-tooling:1.0.0'
+    // Integration with ViewModels
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
+
+    // When using a AppCompat theme
+    implementation "com.google.accompanist:accompanist-appcompat-theme:0.15.0"
+
+    // UI Tests
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.0.0'
 
     androidTestImplementation 'androidx.test:runner:1.4.0-alpha06'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0-alpha06'
