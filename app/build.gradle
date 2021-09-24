@@ -11,10 +11,10 @@ android {
     compileSdkVersion compile_sdk_version
 
     defaultConfig {
-        applicationId "io.horizontalsystems.bankwallet"
+        applicationId 'com.starbase.wallet'
         minSdkVersion min_sdk_version
         targetSdkVersion compile_sdk_version
-        versionCode 51
+        versionCode 52
         versionName "0.22.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
